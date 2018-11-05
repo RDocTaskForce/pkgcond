@@ -13,8 +13,7 @@ License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Imports:
-    methods,
-    assertthat
+    methods
 Suggests:
     covr,
     testthat
@@ -22,6 +21,8 @@ Enhances:
     assertthat
 RoxygenNote: 6.1.0.9000
 Collate: 
+    'assert_that.R'
     'conditions.R'
+    'find_scope.R'
 URL: https://github.com/halpo/pkgcond
 BugReports: https://github.com/halpo/pkgcond/issues

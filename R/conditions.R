@@ -1,4 +1,4 @@
-#' @importFrom methods is
+#' @importFrom methods is getPackageName
 
 .conditions <- c('message', 'warning', 'error', 'none')
 
@@ -35,7 +35,7 @@ condition <-
 function( msg
         , cond = .conditions
         , ... #< objects to be added to the condition as attributes.
-        , scope = environmentName(topenv(parent.frame()))
+        , scope = find_scope(parent.frame())
         , type = NULL #< optional type of the condition, used to create the class.
         , call = sys.call(1)
         ){
@@ -112,7 +112,7 @@ if(FALSE){#@testing
 
 #' @rdname condition
 #' @export
-pkg_error <- function(msg, ..., scope = environmentName(topenv(parent.frame())), call=sys.call(1)){
+pkg_error <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
     condition(msg, cond = 'error', ..., scope=scope, call=call)
 }
 test_pkg_error <- function(...)pkg_error(...)
@@ -129,7 +129,7 @@ if(FALSE){#@testing
 
 #' @rdname condition
 #' @export
-pkg_warning <- function(msg, ..., scope = environmentName(topenv(parent.frame())), call=sys.call(1)){
+pkg_warning <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
     condition(msg, cond = 'warning', ..., scope=scope, call=call)
 }
 test_pkg_warning <- function(...)pkg_warning(...)
@@ -146,7 +146,7 @@ if(FALSE){#@testing
 
 #' @rdname condition
 #' @export
-pkg_message <- function(msg, ..., scope = environmentName(topenv(parent.frame())), call=sys.call(1)){
+pkg_message <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
     condition(msg, cond = 'message', ..., scope=scope, call=call)
 }
 test_pkg_message <- function(...)pkg_message(...)

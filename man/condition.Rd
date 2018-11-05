@@ -8,16 +8,16 @@
 \title{Raise a mutable and classed condition.}
 \usage{
 condition(msg, cond = .conditions, ...,
-  scope = environmentName(topenv(parent.frame())), type = NULL,
+  scope = find_scope(parent.frame()), type = NULL,
   call = sys.call(1))
 
-pkg_error(msg, ..., scope = environmentName(topenv(parent.frame())),
+pkg_error(msg, ..., scope = find_scope(parent.frame()),
   call = sys.call(1))
 
-pkg_warning(msg, ..., scope = environmentName(topenv(parent.frame())),
+pkg_warning(msg, ..., scope = find_scope(parent.frame()),
   call = sys.call(1))
 
-pkg_message(msg, ..., scope = environmentName(topenv(parent.frame())),
+pkg_message(msg, ..., scope = find_scope(parent.frame()),
   call = sys.call(1))
 }
 \arguments{
