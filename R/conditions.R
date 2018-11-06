@@ -35,7 +35,7 @@ condition <-
 function( msg
         , cond = .conditions
         , ... #< objects to be added to the condition as attributes.
-        , scope = find_scope(parent.frame())
+        , scope = find_scope()
         , type = NULL #< optional type of the condition, used to create the class.
         , call = sys.call(1)
         ){
@@ -112,10 +112,13 @@ if(FALSE){#@testing
 
 #' @rdname condition
 #' @export
-pkg_error <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
+pkg_error <- function(msg, ..., scope = find_scope(), call=sys.call(1)){
     condition(msg, cond = 'error', ..., scope=scope, call=call)
 }
-.test_pkg_error <- function(...)pkg_error(...)
+.test_pkg_error <- function(...){
+    `find_scope::skipscope` <- FALSE
+    pkg_error(...)
+}
 if(FALSE){#@testing
     expect_error(.test_pkg_error("A package error."), "A package error.")
     x <- tryCatch( .test_pkg_error("A package error.")
@@ -129,10 +132,13 @@ if(FALSE){#@testing
 
 #' @rdname condition
 #' @export
-pkg_warning <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
+pkg_warning <- function(msg, ..., scope = find_scope(), call=sys.call(1)){
     condition(msg, cond = 'warning', ..., scope=scope, call=call)
 }
-.test_pkg_warning <- function(...)pkg_warning(...)
+.test_pkg_warning <- function(...){
+    `find_scope::skipscope` <- FALSE
+    pkg_warning(...)
+}
 if(FALSE){#@testing
     expect_warning(.test_pkg_warning("A package warning."), "A package warning.")
     x <- tryCatch( .test_pkg_warning("A package warning.")
@@ -146,10 +152,13 @@ if(FALSE){#@testing
 
 #' @rdname condition
 #' @export
-pkg_message <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
+pkg_message <- function(msg, ..., scope = find_scope(), call=sys.call(1)){
     condition(msg, cond = 'message', ..., scope=scope, call=call)
 }
-.test_pkg_message <- function(...)pkg_message(...)
+.test_pkg_message <- function(...){
+    `find_scope::skipscope` <- FALSE
+    pkg_message(...)
+}
 if(FALSE){#@testing
     expect_message(.test_pkg_message("A package message"), "A package message")
     x <- tryCatch( .test_pkg_message("A package message")
