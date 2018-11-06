@@ -2,7 +2,7 @@
 
 .conditions <- c('message', 'warning', 'error', 'none')
 
-paste_scope <- function(...)paste(..., sep='::')
+.paste_scope <- function(...)paste(..., sep='::')
 
 #' Raise a mutable and classed condition.
 #'
@@ -50,7 +50,7 @@ function( msg
     while (length(scope) && scope[[1]] %in% c("", "R_GlobalEnv", "base"))
         scope <- scope[-1L]
     if (length(scope) > 1L)
-        scope <- Reduce(paste_scope, scope, accumulate=TRUE)
+        scope <- Reduce(.paste_scope, scope, accumulate=TRUE)
     classes <-{
         c( if (length(scope))
               c( if (!is.null(type))
@@ -115,10 +115,10 @@ if(FALSE){#@testing
 pkg_error <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
     condition(msg, cond = 'error', ..., scope=scope, call=call)
 }
-test_pkg_error <- function(...)pkg_error(...)
+.test_pkg_error <- function(...)pkg_error(...)
 if(FALSE){#@testing
-    expect_error(test_pkg_error("A package error."), "A package error.")
-    x <- tryCatch( test_pkg_error("A package error.")
+    expect_error(.test_pkg_error("A package error."), "A package error.")
+    x <- tryCatch( .test_pkg_error("A package error.")
                  , condition= function(e)e
                  )
     expect_is(x, 'pkgcond-error')
@@ -132,10 +132,10 @@ if(FALSE){#@testing
 pkg_warning <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
     condition(msg, cond = 'warning', ..., scope=scope, call=call)
 }
-test_pkg_warning <- function(...)pkg_warning(...)
+.test_pkg_warning <- function(...)pkg_warning(...)
 if(FALSE){#@testing
-    expect_warning(test_pkg_warning("A package warning."), "A package warning.")
-    x <- tryCatch( test_pkg_warning("A package warning.")
+    expect_warning(.test_pkg_warning("A package warning."), "A package warning.")
+    x <- tryCatch( .test_pkg_warning("A package warning.")
                  , condition= function(e)e
                  )
     expect_is(x, 'pkgcond-warning')
@@ -149,10 +149,10 @@ if(FALSE){#@testing
 pkg_message <- function(msg, ..., scope = find_scope(parent.frame()), call=sys.call(1)){
     condition(msg, cond = 'message', ..., scope=scope, call=call)
 }
-test_pkg_message <- function(...)pkg_message(...)
+.test_pkg_message <- function(...)pkg_message(...)
 if(FALSE){#@testing
-    expect_message(test_pkg_message("A package message"), "A package message")
-    x <- tryCatch( test_pkg_message("A package message")
+    expect_message(.test_pkg_message("A package message"), "A package message")
+    x <- tryCatch( .test_pkg_message("A package message")
                  , condition= function(e)e
                  )
     expect_is(x, 'pkgcond-message')

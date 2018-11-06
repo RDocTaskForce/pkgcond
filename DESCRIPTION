@@ -24,5 +24,5 @@ Collate:
     'assert_that.R'
     'conditions.R'
     'find_scope.R'
-URL: https://github.com/halpo/pkgcond
-BugReports: https://github.com/halpo/pkgcond/issues
+URL: https://github.com/RDocTaskForce/pkgcond
+BugReports: https://github.com/RDocTaskForce/pkgcond/issues

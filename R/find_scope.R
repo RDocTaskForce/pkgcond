@@ -26,13 +26,13 @@ find_scope <- function(frame=parent.frame(), include.global=FALSE){
         scope <- c(scope, as.character(caller))
     return(scope)
 }
-test_find_scope <- function()find_scope()
-test_find_scope_2 <- function(scope = find_scope(parent.frame(), TRUE))scope
+.test_find_scope <- function()find_scope()
+.test_find_scope_2 <- function(scope = find_scope(parent.frame(), TRUE))scope
 if(FALSE){#@testing
-    expect_identical( test_find_scope()
+    expect_identical( .test_find_scope()
                     , c('pkgcond', 'test_find_scope')
                     )
-    expect_identical(test_find_scope_2(), '.GlobalEnv')
+    expect_identical(.test_find_scope_2(), '.GlobalEnv')
 
     tc <- methods::setRefClass( 'test-class'
                               , methods = list(test_class_scope = function()find_scope())

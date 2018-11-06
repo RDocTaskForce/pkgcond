@@ -26,7 +26,7 @@ function ( ..., env = parent.frame(), msg = NULL
                   , scope = scope
                   ))
 }
-test_assert_that <- function(...){
+.test_assert_that <- function(...){
     assert_that(...)
 }
 if(FALSE){#@testing
