@@ -20,6 +20,9 @@ find_scope <- function(frame=NULL, global=FALSE){
          && is.environment(frame <- sys.frame(n))
          && !identical(frame, globalenv())
          && ( (attr(sys.function(n), 'skipscope') %||% FALSE)
+           || ( exists('.Generic', frame) && n > 2
+             && is(sys.function(n-1L), 'MethodDefinition')
+              )
            || (exists('find_scope::skipscope', frame, inherits = TRUE)
              && get('find_scope::skipscope', frame, inherits = TRUE)
               )
@@ -31,10 +34,13 @@ find_scope <- function(frame=NULL, global=FALSE){
     if (global || pkg != ".GlobalEnv")
         scope <- pkg
     if (!length(n) || n == 0) return(scope)
-    caller <- sys.call(sys.parent(n))[[1]]
-    fun <- eval(caller, frame)
+    caller <- sys.call(n)[[1]]
+    fun <- sys.function(n) # eval(caller, frame)
     if (is(fun, 'refMethodDef')) {
         scope <- c(scope, fun@refClassName, fun@name)
+    } else
+    if (is(fun, 'MethodDefinition')) {
+        scope <- unname(c(scope, paste0(fun@generic, ',', paste(fun@target, collapse=','), "-method")))
     } else
     if (is.name(caller))
         scope <- c(scope, as.character(caller))
@@ -61,6 +67,15 @@ if(FALSE){#@testing
     expect_identical( obj$test_class_scope()
                     , c('test-class', 'test_class_scope')
                     )
+
+    setGeneric("get_scope", function(object){
+        stop('not implimented')
+    })
+    setMethod('get_scope', 'test-class', function(object){
+        `find_scope::skipscope` = FALSE
+        find_scope()
+    })
+    expect_identical(get_scope(obj), 'get_scope,test-class-method')
 }
 
 `%||%` <- function(a,b) if(is.null(a)) b else a
