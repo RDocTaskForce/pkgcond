@@ -12,23 +12,25 @@
 #'
 #' @export
 find_scope <- function(frame=NULL, global=FALSE){
-
-    if (is.null(frame)) n <- 1L
-    else if (is.numeric(frame)) n <- as.integer(frame)
+    if (is.null(frame)) n <- sys.parent(1L)
+    else if (is.numeric(frame)) n <- sys.parent(as.integer(frame))
     else if (is.environment(frame))
         n <- which(sapply(sys.frames(), identical, frame))
-    while ( is.environment(frame <- parent.frame(n))
+    while ( n > 0
+         && is.environment(frame <- sys.frame(n))
          && !identical(frame, globalenv())
-         && exists('find_scope::skipscope', frame, inherits = TRUE)
-         && get('find_scope::skipscope', frame, inherits = TRUE)
-          ) n <- n + 1L
+         && ( (attr(sys.function(n), 'skipscope') %||% FALSE)
+           || (exists('find_scope::skipscope', frame, inherits = TRUE)
+             && get('find_scope::skipscope', frame, inherits = TRUE)
+              )
+            )
+          ) n <- n - 1L
 
     scope = character()
     pkg <- getPackageName(topenv(frame))
     if (global || pkg != ".GlobalEnv")
         scope <- pkg
-
-    if (!length(n) || sys.parent(n) == 0) return(scope)
+    if (!length(n) || n == 0) return(scope)
     caller <- sys.call(sys.parent(n))[[1]]
     fun <- eval(caller, frame)
     if (is(fun, 'refMethodDef')) {
@@ -61,5 +63,5 @@ if(FALSE){#@testing
                     )
 }
 
-
+`%||%` <- function(a,b) if(is.null(a)) b else a
 

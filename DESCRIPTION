@@ -20,9 +20,10 @@ Suggests:
 Enhances:
     assertthat
 RoxygenNote: 6.1.0.9000
-Collate: 
+Collate:
     'assert_that.R'
     'conditions.R'
     'find_scope.R'
+    'skip_scope.R'
 URL: https://github.com/RDocTaskForce/pkgcond
 BugReports: https://github.com/RDocTaskForce/pkgcond/issues
