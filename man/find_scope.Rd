@@ -4,12 +4,12 @@
 \alias{find_scope}
 \title{Find the default scope of a call.}
 \usage{
-find_scope(frame = parent.frame(), include.global = FALSE)
+find_scope(frame = NULL, global = FALSE)
 }
 \arguments{
 \item{frame}{The frame to infer scope from.}
 
-\item{include.global}{Should the global frame be listed in the scope.}
+\item{global}{Should the global frame be listed in the scope.}
 }
 \description{
 This find the scope of the call.

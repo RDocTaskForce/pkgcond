@@ -40,9 +40,9 @@ test_that('condition', {#@testing
             })
 })
 #line 119 "R/conditions.R"
-test_that('test_pkg_error', {#@testing
-    expect_error(test_pkg_error("A package error."), "A package error.")
-    x <- tryCatch( test_pkg_error("A package error.")
+test_that('pkg_error', {#@testing plkg_error
+    expect_error(.test_pkg_error("A package error."), "A package error.")
+    x <- tryCatch( .test_pkg_error("A package error.")
                  , condition= function(e)e
                  )
     expect_is(x, 'pkgcond-error')
@@ -51,9 +51,9 @@ test_that('test_pkg_error', {#@testing
     expect_is(x, 'condition')
 })
 #line 136 "R/conditions.R"
-test_that('test_pkg_warning', {#@testing
-    expect_warning(test_pkg_warning("A package warning."), "A package warning.")
-    x <- tryCatch( test_pkg_warning("A package warning.")
+test_that('pkg_warning', {#@testing pkg_warning
+    expect_warning(.test_pkg_warning("A package warning."), "A package warning.")
+    x <- tryCatch( .test_pkg_warning("A package warning.")
                  , condition= function(e)e
                  )
     expect_is(x, 'pkgcond-warning')
@@ -62,9 +62,9 @@ test_that('test_pkg_warning', {#@testing
     expect_is(x, 'condition')
 })
 #line 153 "R/conditions.R"
-test_that('test_pkg_message', {#@testing
-    expect_message(test_pkg_message("A package message"), "A package message")
-    x <- tryCatch( test_pkg_message("A package message")
+test_that('pkg_message', {#@testing pkg_message
+    expect_message(.test_pkg_message("A package message"), "A package message")
+    x <- tryCatch( .test_pkg_message("A package message")
                  , condition= function(e)e
                  )
     expect_is(x, 'pkgcond-message')

@@ -19,11 +19,14 @@ Suggests:
     testthat
 Enhances:
     assertthat
-RoxygenNote: 6.1.0.9000
+RoxygenNote: 6.1.1
 Collate:
     'assert_that.R'
     'conditions.R'
+    'comma_list.R'
     'find_scope.R'
+    'infix.R'
     'skip_scope.R'
+    'translate.R'
 URL: https://github.com/RDocTaskForce/pkgcond
 BugReports: https://github.com/RDocTaskForce/pkgcond/issues

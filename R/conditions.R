@@ -119,7 +119,7 @@ pkg_error <- function(msg, ..., scope = find_scope(), call=sys.call(1)){
     `find_scope::skipscope` <- FALSE
     pkg_error(...)
 }
-if(FALSE){#@testing
+if(FALSE){#@testing pkg_error
     expect_error(.test_pkg_error("A package error."), "A package error.")
     x <- tryCatch( .test_pkg_error("A package error.")
                  , condition= function(e)e
@@ -139,7 +139,7 @@ pkg_warning <- function(msg, ..., scope = find_scope(), call=sys.call(1)){
     `find_scope::skipscope` <- FALSE
     pkg_warning(...)
 }
-if(FALSE){#@testing
+if(FALSE){#@testing pkg_warning
     expect_warning(.test_pkg_warning("A package warning."), "A package warning.")
     x <- tryCatch( .test_pkg_warning("A package warning.")
                  , condition= function(e)e
@@ -159,7 +159,7 @@ pkg_message <- function(msg, ..., scope = find_scope(), call=sys.call(1)){
     `find_scope::skipscope` <- FALSE
     pkg_message(...)
 }
-if(FALSE){#@testing
+if(FALSE){#@testing pkg_message
     expect_message(.test_pkg_message("A package message"), "A package message")
     x <- tryCatch( .test_pkg_message("A package message")
                  , condition= function(e)e
