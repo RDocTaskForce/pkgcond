@@ -43,7 +43,7 @@ if(FALSE){#! @testing %<<%
 }
 
 #' @rdname infix-concatenation
-`%<<<%` <- function(lhs, rhs) paste(collapse0(lhs), collapse(rhs), sep="")
+`%<<<%` <- function(lhs, rhs) paste(collapse0(lhs), collapse0(rhs), sep="")
 if(FALSE){#! @testing %<<<%
     a <- 'A vain chalks above the integrated biscuit. '
     b <- ' Within the ground burns the leader.'
