@@ -1,5 +1,3 @@
-`find_scope::skipscope` <- TRUE
-
 #' Find the default scope of a call.
 #'
 #' This find the scope of the call.
@@ -19,7 +17,8 @@ find_scope <- function(frame=NULL, global=FALSE){
     while ( n > 0
          && is.environment(frame <- sys.frame(n))
          && !identical(frame, globalenv())
-         && ( (attr(sys.function(n), 'skipscope') %||% FALSE)
+         && !is.primitive(fun <- sys.function(n))
+         && ( (attr(fun, 'skipscope') %||% FALSE)
            || ( exists('.Generic', frame) && n > 2
              && is(sys.function(n-1L), 'MethodDefinition')
               )
@@ -30,12 +29,13 @@ find_scope <- function(frame=NULL, global=FALSE){
           ) n <- n - 1L
 
     scope = character()
+    fun <- sys.function(n)
+    if (is.primitive(fun)) return(scope)
     pkg <- getPackageName(topenv(frame))
     if (global || pkg != ".GlobalEnv")
         scope <- pkg
     if (!length(n) || n == 0) return(scope)
     caller <- sys.call(n)[[1]]
-    fun <- sys.function(n) # eval(caller, frame)
     if (is(fun, 'refMethodDef')) {
         scope <- c(scope, fun@refClassName, fun@name)
     } else
@@ -50,12 +50,10 @@ find_scope <- function(frame=NULL, global=FALSE){
     `find_scope::skipscope` <- FALSE
     find_scope()
 }
-.test_find_scope_2 <- function(scope = find_scope(global=TRUE))scope
 if(FALSE){#@testing
     expect_identical( .test_find_scope()
                     , c('pkgcond', '.test_find_scope')
                     )
-    expect_identical(.test_find_scope_2(), '.GlobalEnv')
 
     tc <- methods::setRefClass( 'test-class'
                               , fields = list(`find_scope::skipscope`='logical')
@@ -70,12 +68,12 @@ if(FALSE){#@testing
 
     setGeneric("get_scope", function(object){
         stop('not implimented')
-    })
+    }, where = globalenv())
     setMethod('get_scope', 'test-class', function(object){
         `find_scope::skipscope` = FALSE
         find_scope()
-    })
-    expect_identical(get_scope(obj), 'get_scope,test-class-method')
+    }, where = globalenv())
+    expect_identical(tail(get_scope(obj), 1), 'get_scope,test-class-method')
 }
 
 `%||%` <- function(a,b) if(is.null(a)) b else a

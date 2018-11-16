@@ -54,8 +54,11 @@ is_global_env <- function(env)identical(env, .GlobalEnv)
 skip_scope = function(fun){structure(fun, skipscope=TRUE)}
 if(FALSE){#@testing
     fun <- function()find_scope()
-    val <- skip_scope(fun)
-    expect_identical(val(), character())
+    environment(fun) <- globalenv()
+    skip <- skip_scope(fun)
+    val <- skip()
+    cat(val)
+    expect_identical(val, character())
 }
 
 condition <- skip_scope(condition)

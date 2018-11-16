@@ -21,17 +21,18 @@ function ( ..., env = parent.frame(), msg = NULL
 {
     res <- assertthat::see_if(..., env = env, msg = msg)
     if (res) return(TRUE)
-    stop(pkg_error( attr(res, "msg")
-                  , type = type
-                  , scope = scope
-                  ))
+    pkg_error( attr(res, "msg")
+             , type = type
+             , scope = scope
+             )
 }
 .test_assert_that <- function(...){
+    `find_scope::skipscope` <- FALSE
     assert_that(...)
 }
 if(FALSE){#@testing
     error <-
-    tryCatch(test_assert_that(1==2)
+    tryCatch(.test_assert_that(1==2)
             , condition = function(e)e )
     expect_is(error, 'condition')
     expect_is(error, 'pkgcond-condition')
@@ -39,8 +40,8 @@ if(FALSE){#@testing
     expect_is(error, 'pkgcond-error')
     expect_is(error, 'error-assertion failure')
     expect_is(error, 'pkgcond-error-assertion failure')
-    expect_is(error, 'pkgcond::test_assert_that-error-assertion failure')
-    expect_is(error, 'pkgcond::test_assert_that-error')
-    expect_is(error, 'pkgcond::test_assert_that-condition')
+    expect_is(error, 'pkgcond::.test_assert_that-error-assertion failure')
+    expect_is(error, 'pkgcond::.test_assert_that-error')
+    expect_is(error, 'pkgcond::.test_assert_that-condition')
 }
 
