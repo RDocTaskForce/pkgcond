@@ -7,7 +7,7 @@
 #' Raise a mutable and classed condition.
 #'
 #' Raising Classed conditions helps with catching errors.
-#' These allow for typing errors as they arrise and adding scopes
+#' These allow for typing errors as they arise and adding scopes
 #' to better catch errors from specific locations.
 #'
 #' @details
@@ -25,9 +25,9 @@
 #' @param scope A character vector of the scope(s) of the signal.
 #'              Defaults to the package name but could be longer such as
 #'              package name, a class name, and a method call.
-#'              This should be used as a where the error occured.
+#'              This should be used as a where the error occurred.
 #' @param type  Used with `scope` and `cond` to set the class of the condition object to raise.
-#'              This should be a type of error; out of bounds, type mismatch, ectetera.
+#'              This should be a type of error; out of bounds, type mismatch, etcetera.
 #' @param call  The call to use to include in the condition.
 #'
 #' @export

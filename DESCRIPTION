@@ -20,7 +20,9 @@ Suggests:
     testthat
 Enhances:
     assertthat
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+Language: en-US
 Collate:
     'assert_that.R'
     'conditions.R'

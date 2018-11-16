@@ -19,8 +19,8 @@ lhs \%<<<\% rhs
 \description{
 The infix operators listed here are three versions of paste.
 \itemize{
-  \item \code{\%\\\%} is for preserving line breaks
-  \item \code{\%<<\%} is an infix replacement for \code{\link{paste}}
-  \item \code{\%<<<\%} is paste with no space and no break."
+\item \code{\%\\\%} is for preserving line breaks
+\item \code{\%<<\%} is an infix replacement for \code{\link{paste}}
+\item \code{\%<<<\%} is paste with no space and no break."
 }
 }

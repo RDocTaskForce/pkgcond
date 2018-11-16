@@ -9,7 +9,7 @@
 #' @param sep2 the separator to use in the case of only two elements.
 #' @param sep.last the separator to use between the last and next to last elements when
 #'                 there are at least 3 element in the list.
-#' @param terminator concatentated to the end after the list is concluded.
+#' @param terminator concatenated to the end after the list is concluded.
 #'
 #' @export
 comma_list <-

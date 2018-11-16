@@ -10,7 +10,7 @@ skip_scope(fun)
 \item{fun}{a function to tag}
 }
 \value{
-The `fun` function with the `skipscope` attribute set to TRUE.
+The \code{fun} function with the \code{skipscope} attribute set to TRUE.
 }
 \description{
 In the course of work it will often be the case that
@@ -22,7 +22,7 @@ condition or have it inferred in each function definition.
 This however, gets very tedious.
 }
 \details{
-The `skip_scope` function tags a function as one that should be
+The \code{skip_scope} function tags a function as one that should be
 excluded from consideration when determining scope via
-[find_scope()].
+\code{\link[=find_scope]{find_scope()}}.
 }

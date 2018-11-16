@@ -23,27 +23,27 @@ pkg_message(msg, ..., scope = find_scope(), call = sys.call(1))
 give a 'message' (default), a 'warning', an 'error'
 or do 'none' and ignore.}
 
-\item{...}{Attributes to be added to condition object for `condition`,
+\item{...}{Attributes to be added to condition object for \code{condition},
 arguments passed to condition for all others.}
 
 \item{scope}{A character vector of the scope(s) of the signal.
 Defaults to the package name but could be longer such as
 package name, a class name, and a method call.
-This should be used as a where the error occured.}
+This should be used as a where the error occurred.}
 
-\item{type}{Used with `scope` and `cond` to set the class of the condition object to raise.
-This should be a type of error; out of bounds, type mismatch, ectetera.}
+\item{type}{Used with \code{scope} and \code{cond} to set the class of the condition object to raise.
+This should be a type of error; out of bounds, type mismatch, etcetera.}
 
 \item{call}{The call to use to include in the condition.}
 }
 \description{
 Raising Classed conditions helps with catching errors.
-These allow for typing errors as they arrise and adding scopes
+These allow for typing errors as they arise and adding scopes
 to better catch errors from specific locations.
 }
 \details{
-The `condition()` function alone provides a flexible and dynamic way of
-producing conditions in code. The functions `pkg_error`, `pkg_warning`,
-and `pkg_message` do the same as condition except restricted to errors, warnings,
+The \code{condition()} function alone provides a flexible and dynamic way of
+producing conditions in code. The functions \code{pkg_error}, \code{pkg_warning},
+and \code{pkg_message} do the same as condition except restricted to errors, warnings,
 and messages respectively.
 }

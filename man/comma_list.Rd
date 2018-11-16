@@ -17,7 +17,7 @@ comma_list(x, sep = ", ", sep2 = " and ", sep.last = ", and ",
 \item{sep.last}{the separator to use between the last and next to last elements when
 there are at least 3 element in the list.}
 
-\item{terminator}{concatentated to the end after the list is concluded.}
+\item{terminator}{concatenated to the end after the list is concluded.}
 }
 \description{
 Use this utility to create nicely formatted lists for error messages and the like.

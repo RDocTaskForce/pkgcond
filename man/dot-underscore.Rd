@@ -3,7 +3,7 @@
 \name{dot-underscore}
 \alias{dot-underscore}
 \alias{._}
-\title{Alias for gettext/gettextf}
+\title{Format and Translate Strings}
 \usage{
 ._(msg, ..., domain = NULL)
 }
@@ -16,8 +16,9 @@
   \item{domain}{see \code{\link{gettext}}.}
 }}
 
-\item{domain}{see [base::gettext]}
+\item{domain}{see \code{\link[base:gettext]{base::gettext()}}}
 }
 \description{
 This shortcut provides simple translation and formatting functionality.
+Essentially it is a wrapper for \code{\link[base:gettext]{base::gettext()}} and \code{\link[base:gettextf]{base::gettextf()}}.
 }

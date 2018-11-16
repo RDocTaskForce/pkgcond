@@ -4,7 +4,7 @@
 #' Scoped Assertions
 #'
 #' The pkgcond package intentionally overrides the [assertthat::assert_that()]
-#' function.  It provides the same utility but enhances the oririginal version
+#' function.  It provides the same utility but enhances the original version
 #' by throwing scoped and typed errors.  The type is 'assertion failure' and
 #' the scope can be set or inferred from the calling frame.
 #'
