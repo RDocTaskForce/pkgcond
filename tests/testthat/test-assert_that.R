@@ -4,6 +4,8 @@
 context('tests extracted from file `assert_that.R`')
 #line 33 "R/assert_that.R"
 test_that('.test_assert_that', {#@testing
+    expect_true(assert_that(1==1))
+
     error <-
     tryCatch(.test_assert_that(1==2)
             , condition = function(e)e )

@@ -70,6 +70,9 @@ function( msg
     throw(ball)
 }
 if(FALSE){#@testing
+    expect_silent( condition('testing', 'none', scope='base'))
+    expect_null( condition('testing', 'none', scope='base'))
+
     expect_message( condition('testing', 'message', scope='base'), 'testing')
     expect_message( condition('testing', 'message', scope='base', type='testing')
                   , class = "message-testing"

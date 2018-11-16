@@ -39,3 +39,8 @@ test_that('`%||%`', {#@testing
     expect_true( NULL %||% TRUE)
     expect_true( TRUE %||% FALSE)
 })
+#line 83 "R/infix.R"
+test_that('`%!in%`', {#@testing
+    expect_true('A' %!in% letters)
+    expect_false('a' %!in% letters)
+})

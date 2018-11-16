@@ -2,9 +2,15 @@
 #! Changes will be overwritten.
 
 context('tests extracted from file `find_scope.R`')
-#line 53 "C:/Users/u0092104/Dropbox/rdtf/pkgcond/R/find_scope.R"
+#line 58 "/rdtf/pkgcond/R/find_scope.R"
 test_that('.test_find_scope', {#@testing
     expect_identical( .test_find_scope()
+                    , c('pkgcond', '.test_find_scope')
+                    )
+    expect_identical( .test_find_scope('integer')
+                    , c('pkgcond', '.test_find_scope')
+                    )
+    expect_identical( .test_find_scope('environment')
                     , c('pkgcond', '.test_find_scope')
                     )
 
@@ -27,4 +33,7 @@ test_that('.test_find_scope', {#@testing
         find_scope()
     }, where = globalenv())
     expect_identical(tail(get_scope(obj), 1), 'get_scope,test-class-method')
+
+    expect_identical(find_scope(1), character(0))
+    expect_identical(find_scope(sys.nframe()), character(0))
 })

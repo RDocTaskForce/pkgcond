@@ -31,10 +31,10 @@ find_scope <- function(frame=NULL, global=FALSE){
     scope = character()
     fun <- sys.function(n)
     if (is.primitive(fun)) return(scope)
+    if (!length(n) || n == 0) return(scope)
     pkg <- getPackageName(topenv(frame))
     if (global || pkg != ".GlobalEnv")
         scope <- pkg
-    if (!length(n) || n == 0) return(scope)
     caller <- sys.call(n)[[1]]
     if (is(fun, 'refMethodDef')) {
         scope <- c(scope, fun@refClassName, fun@name)
@@ -46,12 +46,23 @@ find_scope <- function(frame=NULL, global=FALSE){
         scope <- c(scope, as.character(caller))
     return(scope)
 }
-.test_find_scope <- function(){
+.test_find_scope <- function(method=c('defaults', 'integer', 'environment')){
     `find_scope::skipscope` <- FALSE
-    find_scope()
+    method = match.arg(method)
+    switch( method
+          , defaults = find_scope()
+          , integer = find_scope(1)
+          , environment= find_scope(environment())
+          )
 }
 if(FALSE){#@testing
     expect_identical( .test_find_scope()
+                    , c('pkgcond', '.test_find_scope')
+                    )
+    expect_identical( .test_find_scope('integer')
+                    , c('pkgcond', '.test_find_scope')
+                    )
+    expect_identical( .test_find_scope('environment')
                     , c('pkgcond', '.test_find_scope')
                     )
 
@@ -74,6 +85,9 @@ if(FALSE){#@testing
         find_scope()
     }, where = globalenv())
     expect_identical(tail(get_scope(obj), 1), 'get_scope,test-class-method')
+
+    expect_identical(find_scope(1), character(0))
+    expect_identical(find_scope(sys.nframe()), character(0))
 }
 
 `%||%` <- function(a,b) if(is.null(a)) b else a

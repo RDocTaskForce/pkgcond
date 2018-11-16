@@ -31,6 +31,8 @@ function ( ..., env = parent.frame(), msg = NULL
     assert_that(...)
 }
 if(FALSE){#@testing
+    expect_true(assert_that(1==1))
+
     error <-
     tryCatch(.test_assert_that(1==2)
             , condition = function(e)e )

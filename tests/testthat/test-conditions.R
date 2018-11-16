@@ -2,8 +2,11 @@
 #! Changes will be overwritten.
 
 context('tests extracted from file `conditions.R`')
-#line 72 "R/conditions.R"
+#line 72 "/rdtf/pkgcond/R/conditions.R"
 test_that('condition', {#@testing
+    expect_silent( condition('testing', 'none', scope='base'))
+    expect_null( condition('testing', 'none', scope='base'))
+
     expect_message( condition('testing', 'message', scope='base'), 'testing')
     expect_message( condition('testing', 'message', scope='base', type='testing')
                   , class = "message-testing"
@@ -43,7 +46,7 @@ test_that('condition', {#@testing
                 expect_is(obj, 'condition')
             })
 })
-#line 122 "R/conditions.R"
+#line 125 "/rdtf/pkgcond/R/conditions.R"
 test_that('pkg_error', {#@testing pkg_error
     expect_error(.test_pkg_error("A package error."), "A package error.")
     x <- tryCatch( .test_pkg_error("A package error.")
@@ -54,7 +57,7 @@ test_that('pkg_error', {#@testing pkg_error
     expect_is(x, 'error')
     expect_is(x, 'condition')
 })
-#line 142 "R/conditions.R"
+#line 145 "/rdtf/pkgcond/R/conditions.R"
 test_that('pkg_warning', {#@testing pkg_warning
     expect_warning(.test_pkg_warning("A package warning."), "A package warning.")
     x <- tryCatch( .test_pkg_warning("A package warning.")
@@ -65,7 +68,7 @@ test_that('pkg_warning', {#@testing pkg_warning
     expect_is(x, 'warning')
     expect_is(x, 'condition')
 })
-#line 162 "R/conditions.R"
+#line 165 "/rdtf/pkgcond/R/conditions.R"
 test_that('pkg_message', {#@testing pkg_message
     expect_message(.test_pkg_message("A package message"), "A package message")
     x <- tryCatch( .test_pkg_message("A package message")

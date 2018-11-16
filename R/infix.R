@@ -80,3 +80,7 @@ if(FALSE){#@testing
 #' @export
 #' @name not-in
 `%!in%` <- function(x, table){!(`%in%`(x, table))}
+if(FALSE){#@testing
+    expect_true('A' %!in% letters)
+    expect_false('a' %!in% letters)
+}

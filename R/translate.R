@@ -15,3 +15,9 @@
     else
         gettext(msg, domain = domain)
 }
+if(FALSE){#@testing
+    expect_identical(._('I am testing the function `._`')
+                    , 'I am testing the function `._`')
+    expect_identical(._('I am testing the function `%s`', '._')
+                    , 'I am testing the function `._`')
+}
