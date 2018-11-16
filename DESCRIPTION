@@ -3,15 +3,16 @@ Type: Package
 Title: Classed Error and Warning Conditions
 Version: 0.1.0
 Authors@R: c(
-    person("Andrew", "Redd", , "andrew.redd@hsc.utah.edu", c("aut", "cre")),
+    person("Andrew", "Redd", email="Andrew.Redd@hsc.utah.edu", role=c("aut", "cre")),
     person("R Documentation Task Force", role=c("aut"))
     )
-Maintainer: Andrew Redd <andrew.redd@hsc.utah.edu>
+Maintainer: Andrew Redd <Andrew.Redd@hsc.utah.edu>
 Description: This provides utilities for creating classed error and warning
   conditions based on where the error originated.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
+Depends: R(>= 3.5.0)
 Imports:
     methods
 Suggests:
