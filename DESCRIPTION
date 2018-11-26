@@ -30,6 +30,7 @@ Collate:
     'find_scope.R'
     'infix.R'
     'skip_scope.R'
+    'suppress.R'
     'translate.R'
 URL: https://github.com/RDocTaskForce/pkgcond
 BugReports: https://github.com/RDocTaskForce/pkgcond/issues
