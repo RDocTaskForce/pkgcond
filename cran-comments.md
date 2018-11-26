@@ -11,3 +11,8 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+
+## Comments
+
+From the previously submitted 0.1.0 I have added the requested examples.  I have also 
+added a couple of functions for selectively suppressing messages and warnings.
