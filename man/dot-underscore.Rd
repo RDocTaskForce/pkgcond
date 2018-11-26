@@ -22,3 +22,9 @@
 This shortcut provides simple translation and formatting functionality.
 Essentially it is a wrapper for \code{\link[base:gettext]{base::gettext()}} and \code{\link[base:gettextf]{base::gettextf()}}.
 }
+\examples{
+loki <- list()
+class(loki) <- "puny god"
+._("I am a \%s.", class(loki))
+
+}

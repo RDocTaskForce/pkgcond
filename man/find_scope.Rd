@@ -17,3 +17,15 @@ It includes the package of the call,
 the class if called from a method,
 and the name of the function called.
 }
+\examples{
+
+my_function <- function(){
+    scope <- find_scope()
+    "You are in" \%<<\% collapse(scope, '::')
+}
+my_function()
+
+my_sights <- my_function
+my_sights()
+
+}

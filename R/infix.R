@@ -25,6 +25,12 @@ collapse0 <- function(x, with=''){paste(x, collapse=with)}
 #' }
 #' @aliases %\\%
 #' @export %\% %<<% %<<<%
+#' @examples
+#'
+#' who <- "world"
+#' 'hello_' %<<<% who
+#'
+#' 'Sing with me' %<<% head(letters) %<<% '...'
 `%<<%` <- function(lhs, rhs){
     if (is.null(rhs)) return(collapse(lhs))
     else if (is.null(lhs)) return(collapse(rhs))
@@ -78,6 +84,11 @@ if(FALSE){#@testing
 #'
 #' @inheritParams base::match
 #' @export
+#'
+#' @examples
+#' 'A' %!in% letters #TRUE letters are lower case.
+#' 'A' %!in% LETTERS #FALSE LETTERS are upper case.
+#'
 #' @name not-in
 `%!in%` <- function(x, table){!(`%in%`(x, table))}
 if(FALSE){#@testing

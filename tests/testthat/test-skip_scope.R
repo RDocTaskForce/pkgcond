@@ -2,7 +2,7 @@
 #! Changes will be overwritten.
 
 context('tests extracted from file `skip_scope.R`')
-#line 22 "R/skip_scope.R"
+#line 34 "R/skip_scope.R"
 test_that('skip_scope', {#@testing
     fun <- function()find_scope()
     environment(fun) <- globalenv()

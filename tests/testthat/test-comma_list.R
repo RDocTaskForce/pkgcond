@@ -2,7 +2,7 @@
 #! Changes will be overwritten.
 
 context('tests extracted from file `comma_list.R`')
-#line 29 "R/comma_list.R"
+#line 34 "R/comma_list.R"
 test_that('comma_list', {#! @testing
     expect_is(comma_list(1), 'character')
     expect_equal(comma_list(1), '1')

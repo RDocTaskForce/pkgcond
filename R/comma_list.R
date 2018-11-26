@@ -11,6 +11,11 @@
 #'                 there are at least 3 element in the list.
 #' @param terminator concatenated to the end after the list is concluded.
 #'
+#' @examples
+#' comma_list(c("you", "I"))
+#' comma_list(c("you", "I"), sep2=" & ")
+#' comma_list(head(letters), sep.last=', ', term=', ...')
+#'
 #' @export
 comma_list <-
 function( x                 #< vector to make into a comma list

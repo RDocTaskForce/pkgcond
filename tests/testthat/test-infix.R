@@ -2,7 +2,7 @@
 #! Changes will be overwritten.
 
 context('tests extracted from file `infix.R`')
-#line 33 "R/infix.R"
+#line 43 "R/infix.R"
 test_that('%<<%', {#! @testing %<<%
     a <- 'A vain chalks above the integrated biscuit. '
     b <- 'Within the ground burns the leader.'
@@ -14,7 +14,7 @@ test_that('%<<%', {#! @testing %<<%
     expect_equal(NULL %<<% a, a)
     expect_equal(NULL %<<% NULL, "")
 })
-#line 47 "R/infix.R"
+#line 57 "R/infix.R"
 test_that('%<<<%', {#! @testing %<<<%
     a <- 'A vain chalks above the integrated biscuit. '
     b <- ' Within the ground burns the leader.'
@@ -26,7 +26,7 @@ test_that('%<<<%', {#! @testing %<<<%
     expect_equal(NULL %<<<% a, a)
     expect_equal(NULL %<<<% NULL, '')
 })
-#line 60 "R/infix.R"
+#line 70 "R/infix.R"
 test_that('newline-concatenation', {#! @testing newline-concatenation
     a <- 'A vain chalks above the integrated biscuit. '
     b <- ' Within the ground burns the leader.'
@@ -34,12 +34,12 @@ test_that('newline-concatenation', {#! @testing newline-concatenation
     expect_equal(a %\% b, paste(a,b, sep='\n'))
     expect_equal(a %\% b %\% c, paste(a,b, c, sep='\n'))
 })
-#line 69 "R/infix.R"
+#line 79 "R/infix.R"
 test_that('`%||%`', {#@testing
     expect_true( NULL %||% TRUE)
     expect_true( TRUE %||% FALSE)
 })
-#line 83 "R/infix.R"
+#line 98 "R/infix.R"
 test_that('`%!in%`', {#@testing
     expect_true('A' %!in% letters)
     expect_false('a' %!in% letters)

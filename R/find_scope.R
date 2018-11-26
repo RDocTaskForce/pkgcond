@@ -9,6 +9,18 @@
 #' @param global Should the global frame be listed in the scope.
 #'
 #' @export
+#'
+#' @examples
+#'
+#' my_function <- function(){
+#'     scope <- find_scope()
+#'     "You are in" %<<% collapse(scope, '::')
+#' }
+#' my_function()
+#'
+#' my_sights <- my_function
+#' my_sights()
+#'
 find_scope <- function(frame=NULL, global=FALSE){
     if (is.null(frame)) n <- sys.parent(1L)
     else if (is.numeric(frame)) n <- sys.parent(as.integer(frame))
@@ -18,6 +30,7 @@ find_scope <- function(frame=NULL, global=FALSE){
          && is.environment(frame <- sys.frame(n))
          && !identical(frame, globalenv())
          && !is.primitive(fun <- sys.function(n))
+         && !identical(fun, base::force)
          && ( (attr(fun, 'skipscope') %||% FALSE)
            || ( exists('.Generic', frame) && n > 2
              && is(sys.function(n-1L), 'MethodDefinition')

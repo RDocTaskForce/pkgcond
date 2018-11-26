@@ -24,3 +24,10 @@ The infix operators listed here are three versions of paste.
 \item \code{\%<<<\%} is paste with no space and no break."
 }
 }
+\examples{
+
+who <- "world"
+'hello_' \%<<<\% who
+
+'Sing with me' \%<<\% head(letters) \%<<\% '...'
+}

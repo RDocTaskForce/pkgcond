@@ -22,3 +22,9 @@ there are at least 3 element in the list.}
 \description{
 Use this utility to create nicely formatted lists for error messages and the like.
 }
+\examples{
+comma_list(c("you", "I"))
+comma_list(c("you", "I"), sep2=" & ")
+comma_list(head(letters), sep.last=', ', term=', ...')
+
+}

@@ -10,6 +10,11 @@
 #' @param domain see [base::gettext()]
 #' @name dot-underscore
 #' @export
+#' @examples
+#' loki <- list()
+#' class(loki) <- "puny god"
+#' ._("I am a %s.", class(loki))
+#'
 ._ <- function(msg, ..., domain=NULL){
     if (...length())
         gettextf(msg, ..., domain = domain)

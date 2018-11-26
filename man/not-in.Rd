@@ -17,3 +17,8 @@ x \%!in\% table
 \description{
 The same as \code{\link{\%in\%}} but negated.
 }
+\examples{
+'A' \%!in\% letters #TRUE letters are lower case.
+'A' \%!in\% LETTERS #FALSE LETTERS are upper case.
+
+}

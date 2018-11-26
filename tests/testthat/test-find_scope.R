@@ -2,7 +2,7 @@
 #! Changes will be overwritten.
 
 context('tests extracted from file `find_scope.R`')
-#line 58 "/rdtf/pkgcond/R/find_scope.R"
+#line 71 "R/find_scope.R"
 test_that('.test_find_scope', {#@testing
     expect_identical( .test_find_scope()
                     , c('pkgcond', '.test_find_scope')
