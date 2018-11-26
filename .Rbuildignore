@@ -1,5 +1,8 @@
+^CRAN-RELEASE$
 ^cran-comments\.md$
 ^codecov\.yml$
 ^\.travis\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^.*\.html$
+^sticker$

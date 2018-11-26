@@ -1,4 +1,4 @@
-# pkgcond
+# pkgcond <img src="man/figures/logo.png" align="right" height=140/>
 [![Travis build status](https://travis-ci.org/RDocTaskForce/pkgcond.svg?branch=master)](https://travis-ci.org/RDocTaskForce/pkgcond)
 [![Coverage status](https://codecov.io/gh/RDocTaskForce/pkgcond/branch/master/graph/badge.svg)](https://codecov.io/github/RDocTaskForce/pkgcond?branch=master)
 
