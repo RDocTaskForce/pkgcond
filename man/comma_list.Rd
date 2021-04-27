@@ -4,8 +4,7 @@
 \alias{comma_list}
 \title{Construct a comma separated list}
 \usage{
-comma_list(x, sep = ", ", sep2 = " and ", sep.last = ", and ",
-  terminator = "")
+comma_list(x, sep = ", ", sep2 = " and ", sep.last = ", and ", terminator = "")
 }
 \arguments{
 \item{x}{a list that can be converted into a character.}

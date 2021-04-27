@@ -10,17 +10,17 @@
 \arguments{
 \item{msg}{The message to translate.}
 
-\item{...}{Arguments passed on to \code{base::gettextf}
-\describe{
-  \item{fmt}{a character vector of format strings, each of up to 8192 bytes.}
-  \item{domain}{see \code{\link{gettext}}.}
-}}
+\item{...}{
+  Arguments passed on to \code{\link[base:sprintf]{base::gettextf}}
+  \describe{
+    \item{\code{fmt}}{a character vector of format strings, each of up to 8192 bytes.}
+  }}
 
 \item{domain}{see \code{\link[base:gettext]{base::gettext()}}}
 }
 \description{
 This shortcut provides simple translation and formatting functionality.
-Essentially it is a wrapper for \code{\link[base:gettext]{base::gettext()}} and \code{\link[base:gettextf]{base::gettextf()}}.
+Essentially it is a wrapper for \code{\link[base:gettext]{base::gettext()}} and \code{\link[base:sprintf]{base::gettextf()}}.
 }
 \examples{
 loki <- list()

@@ -4,8 +4,13 @@
 \alias{assert_that}
 \title{Scoped Assertions}
 \usage{
-assert_that(..., env = parent.frame(), msg = NULL,
-  scope = find_scope(env), type = "assertion failure")
+assert_that(
+  ...,
+  env = parent.frame(),
+  msg = NULL,
+  scope = find_scope(env),
+  type = "assertion failure"
+)
 }
 \arguments{
 \item{...}{unnamed expressions that describe the conditions to be tested.

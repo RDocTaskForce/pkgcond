@@ -22,27 +22,21 @@ suppress_messages(expr, pattern = NULL, class = "message", ...)
 When more that one is given the condition may match any
 of the classes.}
 
-\item{...}{Arguments passed on to \code{base::grepl}
-\describe{
-  \item{pattern}{character string containing a \link{regular expression}
-    (or character string for \code{fixed = TRUE}) to be matched
-    in the given character vector.  Coerced by
-    \code{\link{as.character}} to a character string if possible.  If a
-    character vector of length 2 or more is supplied, the first element
-    is used with a warning.  Missing values are allowed except for
-    \code{regexpr} and \code{gregexpr}.}
-  \item{x}{a character vector where matches are sought, or an
+\item{...}{
+  Arguments passed on to \code{\link[base:grep]{base::grepl}}
+  \describe{
+    \item{\code{x}}{a character vector where matches are sought, or an
     object which can be coerced by \code{as.character} to a character
-    vector.  \link{Long vectors} are supported.}
-  \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+    vector.  \link[base]{Long vectors} are supported.}
+    \item{\code{ignore.case}}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
-  \item{perl}{logical.  Should Perl-compatible regexps be used?}
-  \item{fixed}{logical.  If \code{TRUE}, \code{pattern} is a string to be
+    \item{\code{perl}}{logical.  Should Perl-compatible regexps be used?}
+    \item{\code{fixed}}{logical.  If \code{TRUE}, \code{pattern} is a string to be
     matched as is.  Overrides all conflicting arguments.}
-  \item{useBytes}{logical.  If \code{TRUE} the matching is done
+    \item{\code{useBytes}}{logical.  If \code{TRUE} the matching is done
     byte-by-byte rather than character-by-character.  See
     \sQuote{Details}.}
-}}
+  }}
 }
 \description{
 This collection of functions allow the suppression of condition messages,

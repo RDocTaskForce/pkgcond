@@ -7,8 +7,14 @@
 \alias{pkg_message}
 \title{Raise a mutable and classed condition.}
 \usage{
-condition(msg, cond = .conditions, ..., scope = find_scope(),
-  type = NULL, call = sys.call(1))
+condition(
+  msg,
+  cond = .conditions,
+  ...,
+  scope = find_scope(),
+  type = NULL,
+  call = sys.call(1)
+)
 
 pkg_error(msg, ..., scope = find_scope(), call = sys.call(1))
 
