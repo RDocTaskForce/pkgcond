@@ -79,11 +79,11 @@ tryCatch( hello_world("die", stop)
 These functions are included with `pkgcond` to help create error messages.
 
 * `assert_that()`  This intentionally masks `assertthat::assert_that()` when an assertion fails from this call the scope is set as above but a type is also created that indicates this is a 'assertion failure' that can also be used to catch specific errors.
-* `comma_list()` takes a list of items and creates a correctly formatted (for english at least) comma separated list contained in a single string.
+* `comma_list()` takes a list of items and creates a correctly formatted (for English at least) comma separated list contained in a single string.
 * `collapse()` takes a character vector and collapses it to a single string separated by a space.
 * `collapse0()` same as previous but no space separating parts.
 * `lhs %<<% rhs` an infix operator version of paste but will attempt to coerce and collapse lhs and rhs as well.
-* `lhs %<<<%` an infix operator version of paste0, will use collapse0 on lhs and rhs prior to concatentation of the two.
+* `lhs %<<<%` an infix operator version of paste0, will use collapse0 on lhs and rhs prior to concatenation of the two.
 * `lhs %\% rhs` Similar to the previous two but separates with a new line.  This will use collapse prior to concatenation.
 * `._()` Used to enable translation for a signal message.  When used with a single argument acts as an alias for `gettext()` when given multiple arguments it wraps
 `gettextf()`.
